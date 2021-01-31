@@ -52,7 +52,7 @@ def test2():
 # EXERCISE 3
 #################################################################################
 def integer_right_triangles(p):
-    return len([True for a in range(1, p // 3) for b in range(1, p - a) if (p - a - b) ** 2 == a ** 2 + b ** 2])
+    return len([True for a in range(3, p // 3 + 1) for b in range(a, (p - a) // 2 + 1) if (p - a - b)**2 == a**2 + b**2])
 
 def test3():
     tc = unittest.TestCase()
@@ -87,11 +87,10 @@ def test4():
 ..%..
 %.@.%
 ..%..
-<<<<<<< HEAD
 """)
     with captured_output() as (out,err):
         gen_pattern('ABC')
-        tc.assertEqual(out.getvalue(), """
+        tc.assertEqual(out.getvalue().strip(), """
 ....C....
 ..C.B.C..
 C.B.A.B.C
