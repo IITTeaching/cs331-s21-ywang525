@@ -206,20 +206,19 @@ class SuffixArray():
         """
         self.document = document
         self.array = mysort([i for i in range(len(document))], lambda i1, i2: 0 if self.document[i1:] == self.document[i2:] else (-1 if self.document[i1:] < self.document[i2:] else 1))
-        print(f'array: {self.array}')
 
 
     def positions(self, searchstr: str):
         """
         Returns all the positions of searchstr in the documented indexed by the suffix array.
         """
-        pass
+        return [mybinsearch(self.array, searchstr, lambda i, s: 0 if self.document[i:i + len(s)] == s else (-1 if self.document[i:i + len(s)] < s else 1))]
 
     def contains(self, searchstr: str):
         """
         Returns true of searchstr is contained in document.
         """
-        return searchstr in self.document
+        return mybinsearch(self.array, searchstr, lambda i, s: 0 if self.document[i:i + len(s)] == s else (-1 if self.document[i:i + len(s)] < s else 1)) != -1
         
 
 # 40 Points
