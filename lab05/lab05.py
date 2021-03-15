@@ -150,6 +150,8 @@ class LinkedList:
         self.cursor.next.prior = self.cursor.prior
         self.cursor.prior.next = self.cursor.next
         self.cursor = self.cursor.next
+        if self.cursor is self.head:
+            self.cursor = self.cursor.next
         self.length -= 1
         ### END SOLUTION
 
@@ -716,10 +718,10 @@ def test_reverse():
 ################################################################################
 # MAIN
 def main():
-    test_subscript_access()
-    say_success()
+    """test_subscript_access()
+    say_success()"""
     test_custor_based_access()
-    say_success()
+    """say_success()
     test_stringification()
     say_success()
     test_single_element_manipulation()
@@ -729,7 +731,7 @@ def main():
     test_bulk_operations()
     say_success()
     test_iteration()
-    say_success()
+    say_success()"""
 
 if __name__ == '__main__':
     main()
