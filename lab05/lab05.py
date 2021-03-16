@@ -383,6 +383,7 @@ class LinkedList:
         newlst = LinkedList()
         for value in self:
             newlst.prepend(value)
+        return newlst
         ### END SOLUTION
 
 
@@ -731,6 +732,8 @@ def main():
     test_bulk_operations()
     say_success()
     test_iteration()
+    say_success()
+    test_reverse()
     say_success()
 
 if __name__ == '__main__':
