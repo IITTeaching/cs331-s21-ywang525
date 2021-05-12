@@ -22,5 +22,5 @@ def radix_a_book(book_url='https://www.gutenberg.org/files/84/84-0.txt'):
     words_lst = book_to_words(book_url)
     longest = len(max(words_lst, key=lambda x: len(x)))
     for i in range(longest):
-        words_lst = counting_sort(words_lst, lambda b: 0 if i >= len(b) else b[-i])
+        words_lst = counting_sort(words_lst, lambda b: b[longest-i-1] if longest - i - 1 < len(b) else 0)
     return words_lst
